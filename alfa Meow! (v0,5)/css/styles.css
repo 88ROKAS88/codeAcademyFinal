@@ -1,0 +1,69 @@
+.border {
+  border: 1px solid black;
+  position: relative;
+}
+.world {
+  /* z-index: 0; */
+  border: 1px solid black;
+  width: 1700px;
+  height: 1000px;
+  /* background: black; */
+  margin: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  /* border: 10px solid green; */
+  z-index: 10;
+}
+#player {
+  width: 100px;
+  height: 100px;
+  /* background: red; */
+  position: relative;
+  bottom: 200px;
+  left: 200px;
+}
+#env-test {
+  width: 100px;
+  height: 100px;
+  background: green;
+  position: relative;
+  bottom: -90px;
+  left: 410px;
+}
+.cube {
+  width: 100px;
+  height: 100px;
+  /* background: green; */
+  border: 1px solid red;
+  color: greenyellow;
+  text-align: center;
+  box-sizing: border-box;
+}
+.mapCube {
+  width: 100px;
+  height: 100px;
+  /* background: green; */
+  /* border: 1px solid red; */
+  /* color: greenyellow; */
+  /* text-align: center; */
+  /* box-sizing: border-box; */
+}
+.wrap {
+  flex-wrap: wrap;
+}
+#world {
+  /* background-image: url("../maps/betaMap4.jpg"); */
+}
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../maps/fields.webp");
+  border: 1px solid black;
+  width: 1700px;
+  height: 1000px;
+  /* background: black; */
+  margin: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+}
