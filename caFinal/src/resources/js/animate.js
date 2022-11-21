@@ -17,7 +17,7 @@ window.onload = () => {
     let sheetRow = 0;
 
     const spriteSheet = new Image();
-    spriteSheet.src = "../public/images/test3.png";
+    spriteSheet.src = "/images/test3.png";
 
     function animate() {
         ctx.clearRect(0, 0, 100, 100);

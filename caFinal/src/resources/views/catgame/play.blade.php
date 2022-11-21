@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    @vite(['resources/css/styles.css'])
-    <title>Meow! (Alfa version)</title>
-</head>
-
-<body>
+@extends('layouts.main')
+@section('title','Play Cat Game')
+@section('content')
+<h1>Play cat game CA2-FINAL</h1>
+<div>
     <div class="ctg-border">
         <div class="ctg-display">
             <div class="ctg-background ctg-wrap"></div>
@@ -27,6 +19,7 @@
         </div>
     </div>
     @vite(["resources/js/allin1.js"])
-</body>
 
-</html>
+
+</div>
+@endsection

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('game');
+Route::redirect('/', 'games/welcome');
+
+Route::prefix('/games')->name('games.')->group(function () {
+    Route::get('/welcome', [Controllers\Games\CatGameController::class, 'welcome'])->name('welcome');
+    Route::get('/play', [Controllers\Games\CatGameController::class, 'play'])->name('play');
+    Route::get('/highscore', [Controllers\Games\CatGameController::class, 'highscore'])->name('highscore');
+    Route::get('/credits', [Controllers\Games\CatGameController::class, 'credits'])->name('credits');
 });
 
 Route::get('/dashboard', function () {
