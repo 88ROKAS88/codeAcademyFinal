@@ -21,8 +21,9 @@ Route::redirect('/', 'games/welcome');
 Route::prefix('/games')->name('games.')->group(function () {
     Route::get('/welcome', [CatGameController::class, 'welcome'])->name('welcome');
     Route::get('/play', [CatGameController::class, 'play'])->name('play');
-    Route::get('/highscore', [CatGameController::class, 'highscore'])->name('highscore');
+    Route::get('/highscore/{score?}', [CatGameController::class, 'highscore'])->name('highscore');
     Route::get('/credits', [CatGameController::class, 'credits'])->name('credits');
+    Route::post('/newscore', [CatGameController::class, 'newscore'])->name('newscore');
 });
 
 Route::get('/dashboard', function () {

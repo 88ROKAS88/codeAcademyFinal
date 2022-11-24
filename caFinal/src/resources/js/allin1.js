@@ -9,11 +9,17 @@ function sendToServer() {
         lvl3: score[2]["score"],
         overall: score[3]["score"],
     };
+    if (importId) {
+        data["user_id"] = importId;
+        data["user_name"] = importName;
+    }
 
     let url = "/api/v1/games/catgamescore";
+    url = "/games/newscore";
 
     axios.post(url, data).then(() => {
-        // window.location.reload();
+        window.location.href =
+            "http://localhost/games/highscore/" + score[3]["score"];
         console.log("posted");
     });
 }
@@ -51,7 +57,7 @@ function collisionXY(varX, varY) {
                 levelScoreDisplay.innerHTML = "";
                 sendToServer();
                 startGame("you won - wanna play again?");
-                window.location.href = "http://localhost/games/highscore";
+                // window.location.href = "http://localhost/games/highscore";
             } else {
                 startGame("you won next level " + (currentMap + 1));
             }

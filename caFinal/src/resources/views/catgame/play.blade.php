@@ -17,6 +17,13 @@
             <div id="myctg-level-score-display"></div>
         </div>
     </div>
+
+    @auth
+    <script type="text/javascript">
+        var importId = "{{Auth::user()->id}}";
+        var importName = "{{Auth::user()->name}}";
+    </script>
+    @endauth
     @vite(["resources/js/allin1.js"])
 
 
