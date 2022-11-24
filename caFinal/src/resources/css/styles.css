@@ -3,37 +3,37 @@
     --ctg-display-height: 600px;
     --ctg-main-bg-color: brown;
 }
-.ctg-border {
-    width: calc(var(--ctg-display-width) + 220px);
-    height: calc(var(--ctg-display-height) + 20px);
+.myctg-border {
+    width: calc(var(--ctg-display-width) + 200px);
+    height: var(--ctg-display-height);
     background-image: url("/public/images/fields.webp");
     display: flex;
 }
-.ctg-hud {
+.myctg-hud {
     width: 200px;
     height: var(--ctg-display-height);
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
-    border-top: 10px solid rgba(0, 0, 0, 0);
-    border-bottom: 10px solid rgba(0, 0, 0, 0);
+    /* border-top: 10px solid rgba(0, 0, 0, 0); */
+    /* border-bottom: 10px solid rgba(0, 0, 0, 0); */
     font-weight: bold;
     text-transform: uppercase;
     font-size: 30px;
     text-align: center;
 }
-#ctg-timer {
+#myctg-timer {
     font-size: 60px;
     margin-bottom: 100px;
 }
-.ctg-display {
+.myctg-display {
     position: relative;
     /* margin: 10px; */
     width: var(--ctg-display-width);
     height: var(--ctg-display-height);
-    border: 10px solid rgba(0, 0, 0, 0.6);
+    /* border: 10px solid rgba(0, 0, 0, 0.6); */
 }
 
-.ctg-world {
+.myctg-world {
     width: var(--ctg-display-width);
     height: var(--ctg-display-height);
 
@@ -42,7 +42,7 @@
 
     z-index: 10;
 }
-.ctg-background {
+.myctg-background {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -54,7 +54,7 @@
     display: flex;
     flex-direction: column-reverse;
 }
-#ctg-player {
+#myctg-player {
     width: 100px;
     height: 100px;
 
@@ -62,7 +62,7 @@
     bottom: 200px;
     left: 200px;
 }
-#ctg-pigin {
+#myctg-pigin {
     width: 100px;
     height: 100px;
 
@@ -70,7 +70,7 @@
     bottom: 0px;
     left: 1500px;
 }
-#ctg-env-test {
+#myctg-env-test {
     width: 100px;
     height: 100px;
     background: green;
@@ -78,7 +78,7 @@
     bottom: -90px;
     left: 410px;
 }
-.ctg-cube {
+.myctg-cube {
     width: 100px;
     height: 100px;
 
@@ -87,14 +87,14 @@
     text-align: center;
     box-sizing: border-box;
 }
-.ctg-mapCube {
+.myctg-mapCube {
     width: 100px;
     height: 100px;
 }
-.ctg-wrap {
+.myctg-wrap {
     flex-wrap: wrap;
 }
-.ctg-announcement {
+.myctg-announcement {
     padding-top: 300px;
     text-align: center;
     color: white;

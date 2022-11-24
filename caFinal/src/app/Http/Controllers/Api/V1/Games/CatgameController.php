@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Games;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Games\CatGameResource;
 use Illuminate\Http\Request;
 
 use App\Models\catgame_highscore;
@@ -19,16 +20,10 @@ class CatgameController extends Controller
         $highScore->lvl2 = $request->get('lvl2');
         $highScore->lvl3 = $request->get('lvl3');
         $highScore->overall = $request->get('overall');
-        // $product->category_id = $request->get('category_id');
-        // $product->name        = $request->get('name');
-        // $product->price         = $request->get('price');
-        // $product->count        = $request->get('count');
-        // $product->description = json_encode($request->get('description'));
-        // $product->styles        = $request->get('styles');
 
         $highScore->save();
 
-        dd('Back from server baby ! ', $request);
-        // return new ProductResource($product);
+        // dd('Back from server baby ! ', $request);
+        return new CatGameResource($highScore);
     }
 }

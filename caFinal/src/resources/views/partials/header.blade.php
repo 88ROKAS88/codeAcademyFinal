@@ -10,9 +10,15 @@
                     <a class="nav-link @if(\Request::is('games/play')) active @endif " aria-current="page" href="{{ route('games.play') }}">Cat Game</a>
                     <a class="nav-link @if(\Request::is('games/highscore')) active @endif " href="{{ route('games.highscore') }}">High Scores</a>
                     <a class="nav-link @if(\Request::is('games/credits')) active @endif " href="{{ route('games.credits') }}">Credits</a>
-                    <a class="nav-link disabled">Disabled</a>
                 </div>
             </div>
+            @auth <div class="d-flex flex-row align-items-center">Hello {{{Auth::user()->name}}}
+                <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                    @csrf
+                    <button class="btn btn-link text-dark text-decoration-none">{{ __('Logout') }}</button>
+                </form>
+            </div> @endauth
+            @guest <div class="d-flex flex-row"><a class="nav-link mx-1 " href="{{ route('register') }}">Register</a><a class="nav-link mx-1 " href="{{ route('login') }}">Login</a></div> @endguest
         </div>
     </nav>
 </header>

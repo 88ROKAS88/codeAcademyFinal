@@ -10,7 +10,7 @@ function sendToServer() {
         overall: score[3]["score"],
     };
 
-    let url = "/api/v1/games/catgame";
+    let url = "/api/v1/games/catgamescore";
 
     axios.post(url, data).then(() => {
         // window.location.reload();
@@ -51,6 +51,7 @@ function collisionXY(varX, varY) {
                 levelScoreDisplay.innerHTML = "";
                 sendToServer();
                 startGame("you won - wanna play again?");
+                window.location.href = "http://localhost/games/highscore";
             } else {
                 startGame("you won next level " + (currentMap + 1));
             }
@@ -96,7 +97,7 @@ function generateObjectInMap(fx, fy, sx, sy, objectType) {
 // *takes cube id calculates cube cordinates, and put them into - generateObjectInMap function to generate object
 
 function autoGenerate(id, objectType) {
-    id = id.replace("ctg-cube", "");
+    id = id.replace("myctg-cube", "");
     const x = Math.floor(id / 6);
     const y = id % 6;
     // console.log("y= " + y + " x= " + x);
@@ -115,8 +116,8 @@ function autoGenerate(id, objectType) {
 
 function createCube(count) {
     const element = document.createElement("div");
-    element.className = "ctg-mapCube";
-    element.id = "ctg-cube" + count;
+    element.className = "myctg-mapCube";
+    element.id = "myctg-cube" + count;
     // element.innerHTML = count;
     background.appendChild(element);
 }
@@ -124,7 +125,7 @@ function createCube(count) {
 // MAKE ENDPOINT
 
 function makeEndpoint(number) {
-    let id = "ctg-cube" + number;
+    let id = "myctg-cube" + number;
     autoGenerate(id, 2);
     document.querySelector("#" + id).style.backgroundColor =
         "rgba(84, 245, 39, 0.5)";
@@ -133,7 +134,7 @@ function makeEndpoint(number) {
 // RUN AUTOGENERATEMAP AND MAKE MAP VISUALS
 
 function numberToMapObject(number) {
-    let id = "ctg-cube" + number;
+    let id = "myctg-cube" + number;
     autoGenerate(id, 1);
     document.querySelector("#" + id).style.backgroundColor =
         "rgba(0, 0, 0, 0.6)";
@@ -183,13 +184,13 @@ const allMaps = [
 // #   #  #  #  #        ####  #   #  ####  ####
 
 // VARIABLES FOR MAP
-var piginCanvas = document.getElementById("ctg-pigin");
-const background = document.querySelector(".ctg-background");
+var piginCanvas = document.getElementById("myctg-pigin");
+const background = document.querySelector(".myctg-background");
 const numberOfCubes = 66;
-const player = document.querySelector("#ctg-player");
-const world = document.querySelector("#ctg-world");
+const player = document.querySelector("#myctg-player");
+const world = document.querySelector("#myctg-world");
 player.style.position = "relative";
-const timer = document.querySelector("#ctg-timer");
+const timer = document.querySelector("#myctg-timer");
 
 var map = [];
 var currentMap = 0;
@@ -245,7 +246,7 @@ function announcement(message) {
     background.innerHTML = "";
     // world.innerHTML = "";
     const element = document.createElement("div");
-    element.className = "ctg-announcement";
+    element.className = "myctg-announcement";
 
     element.innerText = message;
     background.appendChild(element);
@@ -321,7 +322,7 @@ var timeLeft = 300;
 var score = [];
 let levelScore = 500;
 
-const levelScoreDisplay = document.querySelector("#ctg-level-score-display");
+const levelScoreDisplay = document.querySelector("#myctg-level-score-display");
 setInterval(() => {
     timeLeft--;
     levelScore--;
@@ -398,7 +399,7 @@ document.addEventListener("keyup", (event) => {
 //  #  #  #   #  #  #   #  #  #    #    ####
 
 window.onload = function () {
-    var canvas = document.getElementById("ctg-player");
+    var canvas = document.getElementById("myctg-player");
     var ctx = canvas.getContext("2d");
     canvas.width = 100;
     canvas.height = 100;
