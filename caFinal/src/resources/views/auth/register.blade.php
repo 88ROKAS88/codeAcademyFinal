@@ -3,9 +3,7 @@
 @section('content')
 <div class="col-md-6 my-3 offset-md-3">
     <h1 class="my-5 text-center">Register</h1>
-    <div> @error('email')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+    <div>
         <div>
             @foreach ($errors->all() as $error)
             <div class="alert alert-danger">{{ $error }}</div>
