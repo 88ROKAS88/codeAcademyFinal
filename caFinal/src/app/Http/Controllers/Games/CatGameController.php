@@ -32,7 +32,14 @@ class CatGameController extends Controller
 
     public function newscore(Request $request)
     {
-        $highScore = new catgame_highscore();
+
+        // dd($highScore = catgame_highscore::where('user_id', $request->get('user_id'))->firstOrFail());
+        if (catgame_highscore::where('user_id', $request->get('user_id'))->exists()) {
+            $highScore = catgame_highscore::where('user_id', $request->get('user_id'))->firstOrFail();
+        } else {
+            // if user is not on high score - create new entry
+            $highScore = new catgame_highscore();
+        }
 
         $highScore->user_id = $request->get('user_id');
         $highScore->user_name = $request->get('user_name');

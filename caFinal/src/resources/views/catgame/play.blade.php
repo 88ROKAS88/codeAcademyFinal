@@ -18,8 +18,14 @@
         </div>
     </div>
 
-    @auth
+    @guest
     <script type="text/javascript">
+        var importId = 1;
+        var importName = "Guest";
+    </script>
+    @endguest
+    @auth
+    <script>
         var importId = "{{Auth::user()->id}}";
         var importName = "{{Auth::user()->name}}";
     </script>

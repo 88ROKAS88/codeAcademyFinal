@@ -2,17 +2,17 @@ import axios from "axios";
 // console.log(allMaps.length);
 function sendToServer() {
     let data = {
-        user_id: 1,
-        user_name: "Guest",
+        user_id: importId,
+        user_name: importName,
         lvl1: score[0]["score"],
         lvl2: score[1]["score"],
         lvl3: score[2]["score"],
         overall: score[3]["score"],
     };
-    if (importId) {
-        data["user_id"] = importId;
-        data["user_name"] = importName;
-    }
+    // if (importId) {
+    //     data["user_id"] = importId;
+    //     data["user_name"] = importName;
+    // }
 
     let url = "/api/v1/games/catgamescore";
     url = "/games/newscore";
