@@ -1,5 +1,5 @@
 import axios from "axios";
-// console.log(allMaps.length);
+
 function sendToServer() {
     let data = {
         user_id: importId,
@@ -9,10 +9,6 @@ function sendToServer() {
         lvl3: score[2]["score"],
         overall: score[3]["score"],
     };
-    // if (importId) {
-    //     data["user_id"] = importId;
-    //     data["user_name"] = importName;
-    // }
 
     let url = "/api/v1/games/catgamescore";
     url = "/games/newscore";
@@ -20,7 +16,6 @@ function sendToServer() {
     axios.post(url, data).then(() => {
         window.location.href =
             "http://localhost/games/highscore/" + score[3]["score"];
-        console.log("posted");
     });
 }
 
@@ -94,7 +89,6 @@ function generateObjectInMap(fx, fy, sx, sy, objectType) {
         for (let y = fy; y < sy; y += 10) {
             map[x][y] = objectType;
         }
-        // console.log(x);
     }
     return map;
 }
@@ -106,7 +100,6 @@ function autoGenerate(id, objectType) {
     id = id.replace("myctg-cube", "");
     const x = Math.floor(id / 6);
     const y = id % 6;
-    // console.log("y= " + y + " x= " + x);
     map = generateObjectInMap(
         x * 100,
         y * 100,
@@ -124,7 +117,6 @@ function createCube(count) {
     const element = document.createElement("div");
     element.className = "myctg-mapCube";
     element.id = "myctg-cube" + count;
-    // element.innerHTML = count;
     background.appendChild(element);
 }
 
@@ -235,6 +227,12 @@ function startMap() {
 
     //display game 30fps
     pause = false;
+
+    //start main function
+    if (!mainStarted) {
+        setInterval(main, 1000 / 30);
+        mainStarted = true;
+    }
 }
 
 function startGame(message) {
@@ -250,7 +248,6 @@ function announcement(message) {
     player.style.display = "none";
     piginCanvas.style.display = "none";
     background.innerHTML = "";
-    // world.innerHTML = "";
     const element = document.createElement("div");
     element.className = "myctg-announcement";
 
@@ -262,7 +259,6 @@ function canvasObjects(idName) {
     const element = document.createElement("canvas");
 
     element.id = idName;
-    // element.innerHTML = count;
     world.appendChild(element);
 }
 
@@ -279,6 +275,7 @@ let bottom = 200;
 let left = 200;
 var pause = false;
 let jumpActive = false;
+let mainStarted = false;
 
 //variable for animations
 let characterPos = "l";
@@ -289,7 +286,7 @@ startGame("level 1 - get ready");
 // startMap();
 // GAME ENGINE
 
-setInterval(() => {
+const main = function () {
     if (move) {
         if (move == "l") {
             collisionXY(10, 0);
@@ -316,7 +313,7 @@ setInterval(() => {
     }
     player.style.bottom = bottom + "px";
     player.style.left = left + "px";
-}, 1000 / 30);
+};
 
 //  #  #  #  #  ###
 //  #  #  #  #  #  #
