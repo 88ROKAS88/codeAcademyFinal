@@ -2,7 +2,7 @@
 @section('title','Welcome CA2-FINAL')
 @section('content')
 <div>
-    <h1>Welcome CA2-FINAL</h1>
+    <h1 class="text-center">Welcome CA2-FINAL</h1>
     <hr>
     <h5>Why Cat Game ?</h5>
     <p>This website/webapp(it ounly holds one game) is made as my Code Academy Full Stack Course final work. <br />
