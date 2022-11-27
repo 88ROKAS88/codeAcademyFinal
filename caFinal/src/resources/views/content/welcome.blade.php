@@ -34,8 +34,9 @@
                 <li>games<ul>
                         <li>welcome </li>
                         <li>play </li>
-                        <li>highscore </li>
+                        <li>highscore (can have parameters) </li>
                         <li>credits </li>
+                        <li>newscore </li>
                     </ul>
                 </li>
             </ul>
@@ -58,6 +59,7 @@
                 <li>CatGameController / play</li>
                 <li>CatGameController / highscore</li>
                 <li>CatGameController / credits</li>
+                <li>CatGameController / newscore</li>
             </ul>
         </li>
         <li>api <ul>
@@ -70,5 +72,19 @@
     <h6>Game play</h6>
     <p>It is a tiny game with 3 maps. Game objective is to catch a bird. You can do it by using buttons "A" and "D" to walk and "SPACEBAR" to jump. <br />
         Game has a 300 seconds time limit to get thru all 3 maps. And after doing it website drops you to the highscore section so you can see your resullt and compare it with the other users.</p>
+    <h6>Game structure</h6>
+    <p>All cat games logic is in one file (allin1.js)- wich is separated to 10 parts</p>
+    <ol>
+        <li>Requests</li>
+        <li>Collision</li>
+        <li>Map Functions</li>
+        <li>Static maps</li>
+        <li>Map exec</li>
+        <li>Main</li>
+        <li>H U D</li>
+        <li>Inputs</li>
+        <li>Animate</li>
+        <li>Animate pigin</li>
+    </ol>
 </div>
 @endsection
