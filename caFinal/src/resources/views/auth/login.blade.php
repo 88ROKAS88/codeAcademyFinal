@@ -8,7 +8,7 @@
         <div class="alert alert-danger">{{ $error }}</div>
         @endforeach
     </div>
-    <form method="POST" action="{{ route('login') }}">
+    <form class="mb-5" method="POST" action="{{ route('login') }}">
         @csrf
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>

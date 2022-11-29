@@ -2,7 +2,7 @@
 @section('title','Forgot-password')
 @section('content')
 <div class="col-md-6 my-3 offset-md-3">
-    <h1 class="my-5 text-center">Forgot password</h1>
+    <h1 class="my-5 text-center">Forgot password ?</h1>
     <div>
         <div>
             @foreach ($errors->all() as $error)
@@ -10,7 +10,7 @@
             @endforeach
         </div>
     </div>
-    <form method="POST" action="{{ route('password.email') }}">
+    <form class="mb-5" method="POST" action="{{ route('password.email') }}">
         @csrf
 
         <p>Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.</p>
