@@ -21,7 +21,7 @@ class CatGameController extends Controller
 
     public function highscore($score = null)
     {
-        $highscores = catgame_highscore::get();
+        $highscores = catgame_highscore::orderBy('overall', 'DESC')->get();
         return view('catgame.highscore', compact('highscores', 'score'));
     }
 
