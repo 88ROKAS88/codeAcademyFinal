@@ -15,10 +15,10 @@
             @auth <div class="d-flex flex-row align-items-center">Hello {{{Auth::user()->name}}}
                 <form method="POST" action="{{ route('logout') }}" style="display: inline;">
                     @csrf
-                    <button class="btn btn-link text-muted text-decoration-none">{{ __('Logout') }}</button>
+                    <button class="btn btn-link text-muted text-decoration-none">{{ __('Log out') }}</button>
                 </form>
             </div> @endauth
-            @guest <div class="navbar-nav d-flex flex-row"><a class="@if(\Request::is('register')) active @endif nav-link mx-1 " href="{{ route('register') }}">Register</a><a class="@if(\Request::is('login')) active @endif nav-link mx-1 " href="{{ route('login') }}">Login</a></div> @endguest
+            @guest <div class="navbar-nav d-flex flex-row"><a class="@if(\Request::is('register')) active @endif nav-link mx-1 " href="{{ route('register') }}">Register</a><a class="@if(\Request::is('login')) active @endif nav-link mx-1 " href="{{ route('login') }}">Log in</a></div> @endguest
         </div>
     </nav>
 </header>

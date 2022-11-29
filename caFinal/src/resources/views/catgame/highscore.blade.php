@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title','Cat game highscore')
 @section('content')
-<h1 class="my-4 text-center">Cat game highscore</h1>
+<h1 class="my-4 text-center">The Cat Game high score</h1>
 @if ($score != null)
 <h1> Your score: {{ $score }} </h1>
 @endif

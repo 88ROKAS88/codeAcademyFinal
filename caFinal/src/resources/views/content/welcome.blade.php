@@ -4,10 +4,10 @@
 <div>
     <h1 class="text-center">Welcome CA2-FINAL</h1>
     <hr>
-    <h5>Why Cat Game ?</h5>
-    <p>This website/webapp(it ounly holds one game) is made as my Code Academy Full Stack Course final work. <br />
-        I decided to make it - because video games are funn (cats are awesome) and it allows me to use many things i learned in this course: </p>
-    <h6>Programing/scripting languages:</h6>
+    <h5>Why The Cat Game ?</h5>
+    <p>This website/webapp (it only holds one game) is made as my Code Academy Full Stack Course final project. <br />
+        I decided to make it because video games are fun (cats are awesome) and it allows me to use many things I have learned during this course: </p>
+    <h6>Programming/scripting languages:</h6>
     <ul>
         <li>PHP</li>
         <li>Javascript</li>
@@ -68,23 +68,25 @@
         </li>
     </ul>
     <hr>
-    <h5>Cat Game</h5>
+    <h5>The Cat Game</h5>
     <h6>Game play</h6>
-    <p>It is a tiny game with 3 maps. Game objective is to catch a bird. You can do it by using buttons "A" and "D" to walk and "SPACEBAR" to jump. <br />
-        Game has a 300 seconds time limit to get thru all 3 maps. And after doing it website drops you to the highscore section so you can see your resullt and compare it with the other users.</p>
+    <p>It is a tiny game with 3 maps. The game objective is to catch a bird. You can do it by using buttons "A" and "D" to walk and "SPACEBAR" to jump. <br />
+        The game has a 300 seconds time limit to get through all 3 maps. And after doing it the website drops you to the highscore section so you can see your result and compare it with other users.</p>
     <h6>Game structure</h6>
-    <p>All cat games logic is in one file (allin1.js)- wich is separated to 10 parts</p>
+    <p>All The Cat Game's logic is in one file (allin1.js)- which is separated in to 10 parts:</p>
     <ol>
-        <li>Requests</li>
-        <li>Collision</li>
-        <li>Map Functions</li>
-        <li>Static maps</li>
-        <li>Map exec</li>
-        <li>Main</li>
-        <li>H U D</li>
-        <li>Inputs</li>
-        <li>Animate</li>
-        <li>Animate pigin</li>
+        <li>Requests<span class="text-muted"> (sends player's score to server)</span></li>
+        <li>Collision<span class="text-muted"> (function to calculate collision)</span></li>
+        <li>Map Functions<span class="text-muted"> (functions for map generation from "const allMaps")</span></li>
+        <li>Static maps<span class="text-muted"> ("const allMaps" array of objects)</span></li>
+        <li>Map exec<span class="text-muted"> (load levels, show curtains)</span></li>
+        <li>Main<span class="text-muted"> (time interval which runs everything)</span></li>
+        <li>H U D<span class="text-muted"> (user display for score, time left)</span></li>
+        <li>Inputs<span class="text-muted"> (event listeners for inputs)</span></li>
+        <li>Animate<span class="text-muted"> (cat's animations)</span></li>
+        <li>Animate pigin<span class="text-muted"> (pigin's animations)</span></li>
     </ol>
+    <hr>
+    <a href="https://github.com/88ROKAS88/codeAcademyFinal">GitHub repository</a>
 </div>
 @endsection
