@@ -10,12 +10,12 @@ function sendToServer() {
         overall: score[3]["score"],
     };
 
-    let url = "/api/v1/games/catgamescore";
-    url = "/games/newscore";
+    let domain = "http://my-ca2-final.xyz"; // PRODUCTION
+    domain = "http://localhost"; // DEVELOPEMENT
+    let url = "/games/newscore";
 
     axios.post(url, data).then(() => {
-        window.location.href =
-            "http://localhost/games/highscore/" + score[3]["score"];
+        window.location.href = domain + "/games/highscore/" + score[3]["score"];
     });
 }
 
@@ -45,16 +45,16 @@ function collisionXY(varX, varY) {
         map[left + varX + 90][bottom + varY + 90] == 2
     ) {
         if (pause == false) {
+            clearInterval(clock);
             registerScore(currentMap);
             currentMap++;
             if (currentMap > 2) {
                 currentMap = 0;
                 levelScoreDisplay.innerHTML = "";
                 sendToServer();
-                startGame("you won - wanna play again?");
-                // window.location.href = "http://localhost/games/highscore";
+                startGame("you won - loading high score");
             } else {
-                startGame("you won next level " + (currentMap + 1));
+                startGame("you won, next level " + (currentMap + 1));
             }
             pause = true;
         }
@@ -189,6 +189,7 @@ const player = document.querySelector("#myctg-player");
 const world = document.querySelector("#myctg-world");
 player.style.position = "relative";
 const timer = document.querySelector("#myctg-timer");
+var clock;
 
 var map = [];
 var currentMap = 0;
@@ -215,9 +216,9 @@ function startMap() {
     //loads starting point
     left = allMaps[currentMap]["player"][0];
     bottom = allMaps[currentMap]["player"][1];
+
     //timer
-    timer.style.display = "block";
-    timeLeft = 300;
+    clock = setInterval(hudInterval, 1000);
 
     //loads ending point
     makeEndpoint(allMaps[currentMap]["exit"]);
@@ -244,7 +245,6 @@ function startGame(message) {
 // PLAYER INFORMATION WINDOW / ANNOUNCEMENT OF: WIN / LOSE / NEXT LVL
 
 function announcement(message) {
-    timer.style.display = "none";
     player.style.display = "none";
     piginCanvas.style.display = "none";
     background.innerHTML = "";
@@ -326,7 +326,7 @@ var score = [];
 let levelScore = 500;
 
 const levelScoreDisplay = document.querySelector("#myctg-level-score-display");
-setInterval(() => {
+function hudInterval() {
     timeLeft--;
     levelScore--;
     timer.innerText = timeLeft;
@@ -336,16 +336,17 @@ setInterval(() => {
         currentMap = 0;
         startGame("you lost - try again ?");
     }
-}, 1000);
+}
 
 function displayLevelScore(level) {
     const title = document.createElement("div");
     title.innerText = `${score[level]["level"]}  score`;
     title.style.marginTop = "50px";
+    title.style.fontSize = "20px";
     levelScoreDisplay.appendChild(title);
     const levelScoreVariable = document.createElement("div");
     levelScoreVariable.innerText = score[level]["score"];
-    levelScoreVariable.style.fontSize = "60px";
+    levelScoreVariable.style.fontSize = "30px";
     levelScoreDisplay.appendChild(levelScoreVariable);
 }
 
@@ -381,7 +382,7 @@ document.addEventListener("keydown", (event) => {
     if (event.key == " ") {
         jumpActive = true;
     }
-    if (event.key == " ") {
+    if (event.key == " " && !characterFall && !jump) {
         jump = 0;
     }
 });

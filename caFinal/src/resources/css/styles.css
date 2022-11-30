@@ -6,7 +6,7 @@
 .myctg-border {
     width: calc(var(--ctg-display-width) + 200px);
     height: var(--ctg-display-height);
-    background-image: url("/public/images/fields.webp");
+    background-image: url("/public/images/fields.jpg");
     display: flex;
 }
 .myctg-hud {
@@ -23,7 +23,7 @@
 }
 #myctg-timer {
     font-size: 60px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 .myctg-display {
     position: relative;
