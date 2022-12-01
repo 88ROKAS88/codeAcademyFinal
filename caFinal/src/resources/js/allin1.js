@@ -296,19 +296,20 @@ const main = function () {
         }
     }
 
-    if (jump !== false) {
-        if (jump < 10) {
+    if (jump !== false && jump < 11) {
+        if (jump < 11) {
             collisionXY(0, 20);
             jump += 1;
         }
-        if (jump == 10) {
-            jump = false;
+        if (jump == 11) {
+            // jump = false;
         }
-    } else {
+    } else if (jump == 11 || jump == false) {
         if (collisionXY(0, -10)) {
             characterFall = true;
         } else {
             characterFall = false;
+            jump = false;
         }
     }
     player.style.bottom = bottom + "px";
@@ -382,8 +383,8 @@ document.addEventListener("keydown", (event) => {
     if (event.key == " ") {
         jumpActive = true;
     }
-    if (event.key == " " && !characterFall && !jump) {
-        jump = 0;
+    if (event.key == " " && false == jump) {
+        jump = 1;
     }
 });
 
@@ -433,13 +434,12 @@ window.onload = function () {
             100
         );
         count++;
-        // console.log(count);
         if (characterPos == "r") {
             sheetRow = 100;
         } else {
             sheetRow = 0;
         }
-        if (jump != false) {
+        if (jump != false && jump < 11) {
             sheetRow = 200;
             if (characterPos == "r") {
                 frame = 0;
@@ -493,7 +493,6 @@ function animatepigin() {
     ptx.clearRect(0, 0, 100, 100);
     ptx.drawImage(spriteSheet, piginFrameIndex, 300, 100, 100, 0, 0, 100, 100);
     piginCount++;
-    // console.log(count);
     if (piginCount > 5) {
         piginFrameIndex += 100;
         if (piginFrameIndex > 300) {
