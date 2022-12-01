@@ -84,7 +84,7 @@
         <li>H U D<span class="text-muted"> (user display for score, time left)</span></li>
         <li>Inputs<span class="text-muted"> (event listeners for inputs)</span></li>
         <li>Animate<span class="text-muted"> (cat's animations)</span></li>
-        <li>Animate pigin<span class="text-muted"> (pigin's animations)</span></li>
+        <li>Animate pigin<span class="text-muted"> (pigeon's animations)</span></li>
     </ol>
     <hr>
     <a href="https://github.com/88ROKAS88/codeAcademyFinal">GitHub repository</a>
